@@ -43,7 +43,7 @@ public class FilmeController : ControllerBase
     public IEnumerable<ReadFilmeDto> RecuperaFilmes([FromQuery]int skip = 0, int take = 10)
     {
         // Requisição com query deve ser passado como parametros na rota
-        return _mapper.Map<List<ReadFilmeDto>>(_context.Filmes.Skip(skip).Take(take));
+        return _mapper.Map<List<ReadFilmeDto>>(_context.Filmes.Skip(skip).Take(take).ToList());
     }
 
     [HttpGet("{id}")]
